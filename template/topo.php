@@ -12,7 +12,7 @@
  <div class="navbar">
  <div class="navbar-inner">
  <div class="container">
- <h2>Header</h2> 
+ <h2>Projeto Fase 1</h2> 
  </div>
  </div>
  </div>

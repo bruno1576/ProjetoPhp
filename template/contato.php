@@ -1,13 +1,21 @@
 <?php
+    session_start();
 if($_POST){
 $nome=$_POST['nome'];
+$_SESSION['nome'] = $nome;
 $email=$_POST['email'];
+$_SESSION['email'] = $email;
 $assunto=$_POST['assunto'];
+$_SESSION['assunto'] = $assunto;
 $mensagem=$_POST['mensagem'];
+$_SESSION['mensagem'] = $mensagem;
 
 }
 
-$redirecionar='index.php';
+
+
+
+$redirecionar='dados.php';
 
 if(empty($nome) or empty($nome)or empty($assunto)or empty($mensagem)){
 $class=("alert alert-error");

@@ -1,19 +1,26 @@
+
+<?php  
+
+
+?>
+
+
  <h2> Menu </h2> 
 <ul class="nav nav-tabs nav-stacked">
-     <li> <a href="index.php">
+     <li> <a href="home">
  <i class="icon-star"></i> Pagina inicial </a> </li>
     
-     <li> <a href="..\produtos.php"> <i class="icon-star">
+     <li> <a href="produtos"> <i class="icon-star">
  </i> Produtos </a> </li> 
-    <li> <a href="empresa.php"> <i class="icon-star"></i> Empresa </a> 
+    <li> <a href="empresa"> <i class="icon-star"></i> Empresa </a> 
  
  </li>
 
-   <li> <a href="servicos.php"> <i class="icon-star"></i> serviços </a> 
+   <li> <a href="servicos"> <i class="icon-star"></i> serviços </a> 
  
  </li>
 
     
-     <li> <a href="contato.php"> <i class="icon-star">
+     <li> <a href="contato"> <i class="icon-star">
  </i> Contato </a> </li> 
      </ul> </div> <!-- COLUNA OCUPANDO 10 ESPAÇOS NO GRID --> 

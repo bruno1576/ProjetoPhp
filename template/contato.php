@@ -1,48 +1,51 @@
 <?php
-    session_start();
 if($_POST){
 $nome=$_POST['nome'];
-$_SESSION['nome'] = $nome;
 $email=$_POST['email'];
-$_SESSION['email'] = $email;
 $assunto=$_POST['assunto'];
-$_SESSION['assunto'] = $assunto;
 $mensagem=$_POST['mensagem'];
-$_SESSION['mensagem'] = $mensagem;
-
 }
-
-
-
-
-$redirecionar='dados.php';
-
 if(empty($nome) or empty($nome)or empty($assunto)or empty($mensagem)){
 $class=("alert alert-error");
 $resultado="preencha todos os campos para enviar a mensagem ";
+  $cod=FALSE;
+
 }else{
 
-    header("Location: $redirecionar");
-$resultado="mensagem enviada!";
-$class=("alert alert-success");
+    echo "<h1>DADOS ENVIADOS COM SUCESSO!</h1>";
+
+    $cod=TRUE;
+
+
 }
-
-
-
 ?>
 
 
-<div class="span10"> <div class="well"> <h1> Contato </h1> 
+<div class="span10"> <div class="well"> 
+                            <?php 
+ 
+ if($cod==true){
+     echo "<h5>Seus dados que foram enviados!:";
+ echo "<h5>Nome: " . $_POST['nome'] . " <br>";
+echo "Email: " . $_POST['email'] . " <br>";
+echo "Assunto: " . $_POST['assunto'] . " <br>";
+echo "Mensagem: " . $_POST['mensagem'] . " <br>";
+ }
+?>
+    
+    <h1> Contato </h1> 
  
 
 <div class="row">
   <div class="span12">
-      <form class="form-horizontal" action='' method="POST">
+
+
+      <form class="form-horizontal" action='' method="POST" >
           <div id="legend">
-              <legend class=""><h1>Fale Conosco</h1></legend>
+              <legend class=""><h1></h1></legend>
           </div>
-          <div class="<?php print $class; ?>">
-              <button type="button" class="close" data-dismiss="alert">×</button>
+          <div class="">
+             
          <?php print $resultado; ?>
           </div>
           <div class="control-group">
@@ -73,6 +76,7 @@ $class=("alert alert-success");
               <label class="control-label"></label>
               <div class="controls">
                   <button>Enviar Mensagem</button>
+
               </div>
           </div>
       </form>
@@ -82,4 +86,7 @@ $class=("alert alert-success");
 <hr />	
  </div> 
  </div>
+
+
+
 

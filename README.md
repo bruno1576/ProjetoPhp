@@ -1,4 +1,17 @@
 #Projeto php
+
+##Projeto Fase - 2
+
+**Ajustando as rotas
+
+Agora que você já possui um site simples e funcional com PHP, utilize os conhecimentos passados nesse capítulo para redirecionar todos os requests para seu index.php. Logo, quando o usuário acessar site.com.br/contato, deverá ser chamada a página de contato.**
+REGRAS:
+
+>- Você deverá verificar sempre se o arquivo acessado existe
+- Você deverá apresentar uma mensagem de erro 404 caso a url acessada seja inválida (não esqueça de enviar o STATUS CODE 404)
+- Crie uma função para fazer a verificação das rotas
+- Registre cada uma das rotas em um array
+
 ## Projeto Fase - 1
 
 **Nessa fase do projeto você deverá criar um pequeno site em PHP com os seguintes requisitos:**

@@ -33,7 +33,7 @@ echo "Mensagem: " . $_POST['mensagem'] . " <br>";
  }
 ?>
     
-    <h4> Contato </h4> 
+    <h5> Contato </h5> 
  
 
 <div class="row">

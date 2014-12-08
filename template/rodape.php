@@ -3,12 +3,17 @@
 </div> 
 
  </div>
-<div class="footer">
-	Todos os direitos reservados - <?php
+
+	
+	
+<div class="navbar-fixed-bottom">
+<div class= "bav">Todos os direitos reservados - <?php
   //FUNÇÃO DATE() 
   echo $data = date("d/m/Y"); 
-?>
-	</div>
+?></p>
+</div>
+</div>
+
  </body> 
 
 

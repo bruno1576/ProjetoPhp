@@ -11,8 +11,8 @@ $resultado="preencha todos os campos para enviar a mensagem ";
   $cod=FALSE;
 
 }else{
-
-    echo "<h1>DADOS ENVIADOS COM SUCESSO!</h1>";
+    $resultado="Campos preenchidos com sucesso ";
+    echo "<h3>DADOS ENVIADOS COM SUCESSO!</h3>";
 
     $cod=TRUE;
 
@@ -33,7 +33,7 @@ echo "Mensagem: " . $_POST['mensagem'] . " <br>";
  }
 ?>
     
-    <h1> Contato </h1> 
+    <h4> Contato </h4> 
  
 
 <div class="row">
@@ -42,7 +42,7 @@ echo "Mensagem: " . $_POST['mensagem'] . " <br>";
 
       <form class="form-horizontal" action='' method="POST" >
           <div id="legend">
-              <legend class=""><h1></h1></legend>
+           
           </div>
           <div class="">
              

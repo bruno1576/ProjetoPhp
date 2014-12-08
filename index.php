@@ -1,8 +1,8 @@
 
 
 <?php 
-$rota = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-$path = str_replace("/","",$rota['path']);
+//$rota = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
+//$path = str_replace("/","",$rota['path']);
 
 ?>
 
@@ -16,7 +16,7 @@ function Validarota(){
 
    $path = str_replace("/","",$rota['path']);
 
-   $rotasValidas = array("home"=>1,"contato"=>2,"empresa"=>3,"produtos"=>4,"servicos"=>5);
+   $rotasValidas = array("home"=>1,"contato"=>2,"empresa"=>3,"produtos"=>4,"servicos"=>5);  
 
    $arquivo = $path . ".php";
    $urllimpa=str_replace("/","",$_SERVER['REQUEST_URI']); 

@@ -1,7 +1,25 @@
+<?php   
 
+require_once"conexaoDB.php";
 
-<div class="span10"> <div class="well"> <h1> Página Inicial </h1> 
+$conn=conexaoDB();
+
+$sql="select * from pagina where titulo='Pagina inicial'";
+$stmt=$conn->prepare($sql);
+$stmt->execute();
+$conteudo=$stmt->fetch(PDO::FETCH_ASSOC);
+
+$conteudodapagina=$conteudo;
+   
+     ?>
+
+<div class="span10"> <div class="well"> <h1> <?php echo utf8_encode( $conteudodapagina['titulo']);  ?> </h1> 
  
- <hr /> <p> Olá, Essa é a pagina Home do projeto, essa página tem como interesse testar a página inicial do projeto durante as aulas e os projetos. </p> <hr />	<button class="btn btn-primary btn-large">Clique aqui exemplo!</button> 
+ <hr /> <p> <?php echo utf8_encode( $conteudodapagina['conteudo']); ?> </p> <hr />	
+    <button class="btn btn-primary btn-large">Clique aqui exemplo!</button> 
  </div> 
  </div>
+<?php
+    
+
+?>

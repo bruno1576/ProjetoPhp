@@ -1,5 +1,10 @@
 #Projeto php
 
+
+
+
+
+
 ##Projeto Fase - 2
 
 **Ajustando as rotas
@@ -34,3 +39,7 @@ REGRAS:
 - Quando o formulário for enviado, uma mensagem deve ser exibida para o usuário final:
     - Dados enviados com sucesso, abaixo seguem os dados que você enviou
     - Exibição dos campos preenchidos pelos usuário.
+
+	
+	##Instruções
+	**Para que o sistema funcione ,é preciso que ele esteja em um servidor que leia o php**

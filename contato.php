@@ -20,7 +20,20 @@ $resultado="preencha todos os campos para enviar a mensagem ";
 }
 ?>
 
+<?php   
 
+require_once"conexaoDB.php";
+
+$conn=conexaoDB();
+
+$sql="select * from paginacontato ";
+$stmt=$conn->prepare($sql);
+$stmt->execute();
+$conteudo=$stmt->fetch(PDO::FETCH_ASSOC);
+
+$conteudodapagina=$conteudo;
+
+     ?>
 <div class="span10"> <div class="well"> 
                             <?php 
  
@@ -33,7 +46,7 @@ echo "Mensagem: " . $_POST['mensagem'] . " <br>";
  }
 ?>
     
-    <h5> Contato </h5> 
+    <h5> <?php echo $conteudodapagina['titulo'];  ?> </h5> 
  
 
 <div class="row">
@@ -49,25 +62,25 @@ echo "Mensagem: " . $_POST['mensagem'] . " <br>";
          <?php print $resultado; ?>
           </div>
           <div class="control-group">
-              <label class="control-label" for="nome">Nome:</label>
+              <label class="control-label" for="nome"><?php echo $conteudodapagina['nome'];  ?> </label>
               <div class="controls">
                   <input type="text" id="nome" name="nome" class="input-xlarge">
               </div>
           </div>
           <div class="control-group">
-              <label class="control-label" for="email">E-mail:</label>
+              <label class="control-label" for="email"><?php echo $conteudodapagina['email'];  ?> </label>
               <div class="controls">
                   <input type="text" id="email" name="email" class="input-xlarge">
               </div>
           </div>
           <div class="control-group">
-              <label class="control-label" for="assunto">Assunto:</label>
+              <label class="control-label" for="assunto"><?php echo $conteudodapagina['assunto'];  ?></label>
               <div class="controls">
                   <input type="text" id="assunto" name="assunto" class="input-xlarge">
               </div>
           </div>
           <div class="control-group">
-              <label class="control-label" for="mensagem">Mensagem:</label>
+              <label class="control-label" for="mensagem"><?php echo $conteudodapagina['assunto'];  ?></label>
               <div class="controls">
                   <textarea rows="5" name="mensagem"></textarea>
               </div>

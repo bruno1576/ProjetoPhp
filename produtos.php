@@ -1,5 +1,21 @@
-<div class="span10"> <div class="well"> <h1> Produtos </h1> 
+
+<?php   
+
+require_once"conexaoDB.php";
+
+$conn=conexaoDB();
+
+$sql="select * from pagina where titulo='Produtos'";
+$stmt=$conn->prepare($sql);
+$stmt->execute();
+$conteudo=$stmt->fetch(PDO::FETCH_ASSOC);
+
+$conteudodapagina=$conteudo;
+   
+     ?>
+
+<div class="span10"> <div class="well"> <h1> <?php echo utf8_encode( $conteudodapagina['titulo']);  ?> </h1> 
  
- <hr /> <p> Olá, essa é a produtos do projeto, aqui ficaram os possíveis produtos que poderão ser usados no projeto, embora inicialmente essa página sirva somente para interesses demonstrativos....</p> <hr />	<button class="btn btn-primary btn-large">Clique aqui exemplo!</button> 
+ <hr /> <p> <?php echo utf8_encode($conteudodapagina['conteudo']); ?> </p> <hr />	<button class="btn btn-primary btn-large">Clique aqui exemplo!</button> 
  </div> 
  </div>

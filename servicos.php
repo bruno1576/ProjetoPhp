@@ -1,5 +1,20 @@
-<div class="span10"> <div class="well"> <h1> serviços </h1> 
+<?php   
+
+require_once"conexaoDB.php";
+
+$conn=conexaoDB();
+
+$sql="select * from pagina where id='4'";
+$stmt=$conn->prepare($sql);
+$stmt->execute();
+$conteudo=$stmt->fetch(PDO::FETCH_ASSOC);
+
+$conteudodapagina=$conteudo;
+   
+     ?>
+
+<div class="span10"> <div class="well"> <h1><?php echo utf8_encode($conteudodapagina['titulo']);  ?> </h1> 
  
- <hr /> <p>Essa é a página de serviços, aqui serão postados os principais serviços em questão da empresa, por enquanto ela é só uma página de exemplo. </p> <hr />	<button class="btn btn-primary btn-large">Clique aqui exemplo!</button> 
+ <hr /> <p> <?php echo utf8_encode($conteudodapagina['conteudo']); ?> </p> <hr />	<button class="btn btn-primary btn-large">Clique aqui exemplo!</button> 
  </div> 
  </div>

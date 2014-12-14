@@ -1,12 +1,6 @@
-
-
 <?php 
-//$rota = parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-//$path = str_replace("/","",$rota['path']);
  include('template/funcoes.php');
-
-
-?>
+ ?>
 
 
 
@@ -15,27 +9,15 @@
                         <button type="submit" id="busca" name="busca" class="btn btn-success">Buscar</button>
                       </form>
 <?php
-   
-
-
-
-
-    $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; 
-
-
-
-  
+    $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];   
     
-require_once('template/topo.php');
-require_once('template/menu.php');
- include('config.php');
-  include('conexaoDB.php');
+    require_once('template/topo.php');
+    require_once('template/menu.php');
+    include('config.php');
+    include('conexaoDB.php');
   
 
-Validarota();
+    Validarota();
 
-require_once('template/rodape.php');
-
-  
-//print_r($clientes);
+    require_once('template/rodape.php');
 ?>

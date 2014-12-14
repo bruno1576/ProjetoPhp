@@ -1,52 +1,12 @@
-<?php
-if($_POST){
-$nome=$_POST['nome'];
-$email=$_POST['email'];
-$assunto=$_POST['assunto'];
-$mensagem=$_POST['mensagem'];
-}
-if(empty($nome) or empty($nome)or empty($assunto)or empty($mensagem)){
-$class=("alert alert-error");
-$resultado="preencha todos os campos para enviar a mensagem ";
-  $cod=FALSE;
 
-}else{
-    $resultado="Campos preenchidos com sucesso ";
-    echo "<h3>DADOS ENVIADOS COM SUCESSO!</h3>";
-
-    $cod=TRUE;
-
-
-}
-?>
 
 <?php   
 
-require_once"conexaoDB.php";
-
-$conn=conexaoDB();
-
-$sql="select * from paginacontato ";
-$stmt=$conn->prepare($sql);
-$stmt->execute();
-$conteudo=$stmt->fetch(PDO::FETCH_ASSOC);
-
-$conteudodapagina=$conteudo;
-
+$teste = camposdocontato();
      ?>
 <div class="span10"> <div class="well"> 
-                            <?php 
  
- if($cod==true){
-     echo "<h5>Seus dados que foram enviados!:";
- echo "<h5>Nome: " . $_POST['nome'] . " <br>";
-echo "Email: " . $_POST['email'] . " <br>";
-echo "Assunto: " . $_POST['assunto'] . " <br>";
-echo "Mensagem: " . $_POST['mensagem'] . " <br>";
- }
-?>
-    
-    <h5> <?php echo $conteudodapagina['titulo'];  ?> </h5> 
+    <h5> <?php echo $teste['titulo'];  ?> </h5> 
  
 
 <div class="row">
@@ -59,28 +19,28 @@ echo "Mensagem: " . $_POST['mensagem'] . " <br>";
           </div>
           <div class="">
              
-         <?php print $resultado; ?>
+         <?php enviacontato(); ?>
           </div>
           <div class="control-group">
-              <label class="control-label" for="nome"><?php echo $conteudodapagina['nome'];  ?> </label>
+              <label class="control-label" for="nome"><?php echo $teste['nome'];  ?> </label>
               <div class="controls">
                   <input type="text" id="nome" name="nome" class="input-xlarge">
               </div>
           </div>
           <div class="control-group">
-              <label class="control-label" for="email"><?php echo $conteudodapagina['email'];  ?> </label>
+              <label class="control-label" for="email"><?php echo $teste['email'];  ?> </label>
               <div class="controls">
                   <input type="text" id="email" name="email" class="input-xlarge">
               </div>
           </div>
           <div class="control-group">
-              <label class="control-label" for="assunto"><?php echo $conteudodapagina['assunto'];  ?></label>
+              <label class="control-label" for="assunto"><?php echo $teste['assunto'];  ?></label>
               <div class="controls">
                   <input type="text" id="assunto" name="assunto" class="input-xlarge">
               </div>
           </div>
           <div class="control-group">
-              <label class="control-label" for="mensagem"><?php echo $conteudodapagina['assunto'];  ?></label>
+              <label class="control-label" for="mensagem"><?php echo $teste['mensagem'];  ?></label>
               <div class="controls">
                   <textarea rows="5" name="mensagem"></textarea>
               </div>

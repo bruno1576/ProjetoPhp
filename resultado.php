@@ -1,16 +1,5 @@
 <?php
-require_once"conexaoDB.php";
-$busca=$_POST['txtBusca'];
-$conn=conexaoDB();
-
-$sql="select * from pagina where conteudo LIKE '%".$busca."%'";
-
-$stmt=$conn->prepare($sql);
-$stmt->execute();
-
-
-$row=$stmt->fetchall(PDO::FETCH_ASSOC);
-
+$row =consultaresultado();
 
 ?>
 

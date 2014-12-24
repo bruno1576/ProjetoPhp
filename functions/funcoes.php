@@ -7,21 +7,24 @@
     
        $path = str_replace("/","",$rota['path']);
     
-       $rotasValidas = array("home"=>1,"contato"=>2,"empresa"=>3,"produtos"=>4,"servicos"=>5,"resultado"=>6);  
+       $rotasValidas = array("home"=>1,"contato"=>2,"empresa"=>3,"produtos"=>4,"servicos"=>5,
+       "resultado"=>6,"areaadm"=>7,"adm"=>8,"logout"=>9,"loginareaadm"=>10,"admhome"=>11,
+       "admcontato"=>12,"admempresa"=>13,"admprodutos"=>14,"admservicos"=>15);  
     
-       $arquivo = $path . ".php";
+       $arquivo ="src/". $path . ".php";
+        $arquivo2 ="admin/". $path . ".php";
        $urllimpa=str_replace("/","",$_SERVER['REQUEST_URI']); 
     
     
     
         if  ($urllimpa==""){  
-            require_once('home.php');
+            require_once('src/home.php');
         }
     
         elseif  (array_key_exists($path, $rotasValidas)){
     
             require_once($arquivo);
-    
+   
     
         }
          else{
@@ -146,5 +149,92 @@
     $conteudodapagina=$conteudo;
     return $conteudodapagina;
     }
+
+  function updatehome(){
+ if($_POST){
+        $conteudo=$_POST['editor1'];
+
+ 
+        $conn=conexaoDB();
+          $smt=$conn->prepare("UPDATE pagina SET conteudo = :conteudo WHERE titulo='pagina inicial'");
+          $smt->bindParam(':conteudo', $conteudo, PDO::PARAM_STR);  
+    $smt->execute();
+
+        }
+   
+  }
+
+function updateempresa(){
+ if($_POST){
+        $conteudo=$_POST['editor1'];
+
+ 
+        $conn=conexaoDB();
+          $smt=$conn->prepare("UPDATE pagina SET conteudo = :conteudo WHERE titulo='empresa'");
+          $smt->bindParam(':conteudo', $conteudo, PDO::PARAM_STR);  
+    $smt->execute();
+
+        }
+}
+
+
+function updateprodutos(){
+ if($_POST){
+        $conteudo=$_POST['editor1'];
+
+ 
+        $conn=conexaoDB();
+          $smt=$conn->prepare("UPDATE pagina SET conteudo = :conteudo WHERE titulo='produtos'");
+          $smt->bindParam(':conteudo', $conteudo, PDO::PARAM_STR);  
+    $smt->execute();
+
+        }
+}
+function updateservicos(){
+ if($_POST){
+        $conteudo=$_POST['editor1'];
+
+ 
+        $conn=conexaoDB();
+          $smt=$conn->prepare("UPDATE pagina SET conteudo = :conteudo WHERE id = 4");
+          $smt->bindParam(':conteudo', $conteudo, PDO::PARAM_STR);  
+    $smt->execute();
+
+        }
+}
+
+function Menuadm(){
+
+       if(isset($_SESSION['logado']) and $_SESSION['logado']==1)
+       {
+           
+
+           echo  " <li>"."<a href='admhome'>". "<i class='icon-star'>"."</i>". "Home adm"." </a>"."</li>";
+            echo  " <li>"."<a href='admprodutos'>". "<i class='icon-star'>"."</i>". "Produtos adm"." </a>"."</li>";
+             echo  " <li>"."<a href='admempresa'>". "<i class='icon-star'>"."</i>". "Empresa adm"." </a>"."</li>";
+              echo  " <li>"."<a href='admservicos'>". "<i class='icon-star'>"."</i>". "serviços adm"." </a>"."</li>";
+      
+       }else{
+           
+
+              echo  " <li>"."<a href='areaadm'>". "<i class='icon-star'>"."</i>". "Area administrativa"." </a>"."</li>";
+
+       }
+
+}
+
+
+    function botaologout(){
+ if(isset($_SESSION['logado']) and $_SESSION['logado']==1)
+       {
+           
+
+           echo  " <form class='navbar-search2' name='logout' id='logout' method='post'action='logout'>";
+            echo  " <button type='submit' id='logout' name='logout' class='btn btn-success'>"."Logout"."</button>";
+             echo  "</form'>";
+             
+      
+       }
+       }
 ?>
 

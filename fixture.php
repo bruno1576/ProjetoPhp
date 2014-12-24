@@ -1,5 +1,5 @@
 ﻿<?php 
-require_once"conexaoDB.php";
+require_once"functions/conexaoDB.php";
 echo"#### EXECUTANDO FIXTURE ####\n";
 $conn=conexaoDB();
 
@@ -125,6 +125,43 @@ $textoservico= utf8_decode("Essa é a página de serviços, aqui serão postados
 
 
 echo "#### Conluido ####\n";
+
+
+echo"#### EXECUTANDO FIXTURE tabela login####\n";
+$conn=conexaoDB();
+
+echo"Removendo tabela";
+$conn->query("DROP TABLE IF EXISTS login;");
+echo" - ok\n";
+
+echo"Criando tabela";
+$conn->query("CREATE TABLE login(
+id INT NOT NULL AUTO_INCREMENT,
+   email VARCHAR(500) CHARACTER SET 'utf8' NULL,
+    senha VARCHAR(500) CHARACTER SET 'utf8' NULL,
+   PRIMARY KEY (id));");
+echo" - ok\n";
+
+echo"Inserindo dados";
+
+$senha1= password_hash("26298381",PASSWORD_DEFAULT);
+$senha2= password_hash("45133703",PASSWORD_DEFAULT);
+    $smt=$conn->prepare("INSERT INTO login (id, email, senha) VALUES
+(1, 'brunosalve1@hotmail.com','$senha1'),
+(2, 'bruno1576@hotmail.com','$senha2');
+");
+    $smt->execute();
+
+echo "#### Conluido ####\n";
+
+
+
+$conn->query("CREATE TABLE noticias(
+id INT NOT NULL AUTO_INCREMENT,
+   titulo VARCHAR(500) CHARACTER SET 'utf8' NULL,
+    descricao VARCHAR(500) CHARACTER SET 'utf8' NULL,
+   PRIMARY KEY (id));");
+
 
 
 

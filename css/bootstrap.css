@@ -4509,9 +4509,15 @@ input[type="submit"].btn.btn-mini {
   margin-top: 0;
 }
 
-.navbar-search {
+.navbar-search2{
   position: relative;
   float: right;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+.navbar-search {
+  position: relative;
+  float:right;
   margin-top: 5px;
   margin-bottom: 0;
 }

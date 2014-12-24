@@ -1,7 +1,6 @@
 
 <?php  
 
-
 ?>
 
 
@@ -23,4 +22,16 @@
     
      <li> <a href="contato"> <i class="icon-star">
  </i> Contato </a> </li> 
+
+
+     </li>
+
+ 
+ </li>
+
+    <?php
+Menuadm();
+    ?>
+
+    
      </ul> </div> <!-- COLUNA OCUPANDO 10 ESPAÇOS NO GRID --> 
